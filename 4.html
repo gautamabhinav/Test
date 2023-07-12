@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .navbar-brand {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar-toggle {
+            cursor: pointer;
+            display: none;
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-menu li {
+            margin-left: 10px;
+        }
+
+        .navbar-menu a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            .navbar-menu {
+                display: none;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar-menu.open {
+                display: flex;
+                flex-direction: column;
+                background-color: #111;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                padding: 10px;
+            }
+
+            .navbar-menu.open li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Logo</div>
+        <button class="navbar-toggle" onclick="toggleMenu()">&#9776;</button>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            var navbarMenu = document.getElementById('navbarMenu');
+            navbarMenu.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

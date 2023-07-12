@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Modal Window</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        /* Disable scrolling when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="openModal()">Open Modal</button>
+
+    <div class="modal-overlay" onclick="closeModal()"></div>
+
+    <div class="modal">
+        <div class="modal-close" onclick="closeModal()">&times;</div>
+        <div class="modal-content">
+            <h2>Modal Window</h2>
+            <p>This is a custom modal window.</p>
+        </div>
+    </div>
+
+    <script>
+        var modalOverlay = document.querySelector('.modal-overlay');
+        var modal = document.querySelector('.modal');
+        var body = document.querySelector('body');
+
+        function openModal() {
+            modalOverlay.style.display = 'block';
+            modal.style.display = 'block';
+            body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modalOverlay.style.display = 'none';
+            modal.style.display = 'none';
+            body.classList.remove('modal-open');
+        }
+    </script>
+</body>
+</html>
